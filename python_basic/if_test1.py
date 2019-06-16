@@ -5,4 +5,4 @@ if money:
 else:
     print("걷기")
     
-a=1234
+a=12345
