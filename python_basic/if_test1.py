@@ -4,3 +4,5 @@ if money:
     print("택시 타기")
 else:
     print("걷기")
+    
+a=1234
