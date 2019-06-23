@@ -16,7 +16,7 @@ class Customer:
         Q - 프로그램종료
         ''').upper()
         return choice
-    
+    ㅌㅊㅊㅊ
     def exe(self, choice):
         if choice=='I':
             self.insertData()
