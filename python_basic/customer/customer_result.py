@@ -1,10 +1,13 @@
-import re
+import re, sys
 
 class Customer:
     custlist=[]
     page = -1
     
-    
+    def quit(self):
+        print("프로그램을 종료합니다.")
+        sys.exit()
+
     def insertData(self): 
         customer={'name':'','sex':'',"email":'',"birthyear":''}
         customer['name']=str(input("이름을 입력하세요 : "))
@@ -143,7 +146,7 @@ class Customer:
             elif choice=='D':
                 self.deleteData()
             elif choice=='Q':
-                quit()
+                self.quit()
 
     def __init__(self):
         while True:

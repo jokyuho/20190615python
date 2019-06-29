@@ -1,4 +1,4 @@
-import re
+import re, sys, pickle, os, json
 
 class Customer:
     custlist=[]
@@ -8,18 +8,35 @@ class Customer:
         choice=input('''
             다음 중에서 하실 일을 골라주세요 :
             I - 고객 정보 입력
+            A - 전체 고객 정보 조회
             C - 현재 고객 정보 조회
             P - 이전 고객 정보 조회
             N - 다음 고객 정보 조회
             U - 고객 정보 수정
             D - 고객 정보 삭제
+            S - 저장
             Q - 프로그램 종료
             ''').upper()  
         return choice
+    
+    def saveData(self): # 왜 저장하면 이름이 저리 뜨는 거쥬...?
+        with open("./python_basic/customer/data.json",'wt') as f:
+            json.dump(self.custlist, f, indent=4)
+
+    def loadData(self): # 프로그램이 시작될 때 실행되야하는 함수
+        # 파일 크기가 0보다 클 경우에 읽어옴.
+        # if os.path.getsize("./customer/data.pkl")>0:
+        # 파일이 존재할 경우에 읽어옴.
+        if os.path.exists("./python_basic/customer/data.json"):
+            with open("./python_basic/customer/data.json",'rt') as f:
+                self.custlist = json.load(f)
+                self.page=len(self.custlist)-1
 
     def exe(self, choice):
             if choice=='I':
                 self.insertData()
+            elif choice=='A':
+                self.allSearch()
             elif choice=='C':
                 self.curSearch()
             elif choice=='P':
@@ -30,10 +47,13 @@ class Customer:
                 self.updateData()
             elif choice=='D':
                 self.deleteData()
+            elif choice=="S":
+                self.saveData()
             elif choice=='Q':
-                quit()
+                self.quit()
 
     def __init__(self):
+        self.loadData()
         while True:
             self.exe(self.firstinput())
     
@@ -79,6 +99,11 @@ class Customer:
         print(self.custlist)
         self.page = len(self.custlist)-1 
         print(self.page)
+    
+    def allSearch(self):
+        print("- 전체 고객 리스트 -")
+        for i in self.custlist:
+            print(i)
 
     def curSearch(self):
         if self.page >= 0:
@@ -148,5 +173,10 @@ class Customer:
 
         if delok == 0:
                 print('등록되지 않은 이메일입니다.')
+    
+    def quit(self):
+        print("프로그램을 종료합니다.")
+        self.saveData()
+        sys.exit()
 
 Customer()
