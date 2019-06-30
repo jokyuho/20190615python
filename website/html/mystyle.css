@@ -1,0 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+body{font-size:20pt; font-family:"Nanum Gothic", sans-serif;}
+#p1{background-color: blueviolet}
+a:hover{color:green}
+/* 주석 */
