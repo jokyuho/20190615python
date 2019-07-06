@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>자바 스크립트 연습</title>
+    </head>
+    <body>
+        <태그 이벤트="자바스크립트 코드">
+        <input type="button" value="클릭하세요!!" onclick="alert('ok')">
+        <button onclick="alert('hello')">버튼을 누르세요</button>
+        <script>
+            var s;
+            s=100;
+            document.write(s+"<br>");
+            document.write(typeof(s)+"<br>");
+
+            s="홍길동";
+            document.write(s+"<br>");
+            document.write(typeof(s)+"<br>");
+            
+            var c = prompt("내용을 입력하세요")
+            document.write(c);
+            confirm("당신의 이름은 "+c);
+
+            var user = confirm("당신의 이름은 "+ c );
+            if(user==true){
+                document.write("확인"+"<br>");
+                document.wirte(user+"<br>");
+            }else{
+                document.write("취소"+"<br>");
+                document.wirte(user+"<br>");
+            }
+        </script>
+    </body>
+</html>

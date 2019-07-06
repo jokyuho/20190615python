@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>배열 연습</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+    
+        var fruits = new Array();
+        fruits["a"] = "사과";
+        fruits["b"] = "바나나";
+        fruits["c"] = "오렌지";
+    
+        // var fruits = ["Apple","Banana","Orange"];
+        for(i=0;i<=fruits.length;i++){
+            document.write(fruits[i]+"<br>");
+        } // 숫자 인덱스일때
+
+        for(var f in fruits){
+            document.write(fruits[f]+"<br>");
+        }
+
+        document.write(fruits["a"]+"<br>");
+        document.write(fruits["b"]+"<br>");
+        document.write(fruits["c"]+"<br>");
+        </script>
+    </body>
+</html>

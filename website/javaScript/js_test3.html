@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <script>
+            function calc(){
+                var x = document.getElementById("x").value;
+                var y = document.getElementById("y").value;
+                sum = parseInt(x)+parseInt(y);
+                document.getElementById("sum").value = sum;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform" method="post">
+            첫번째 정수 : <input type = "text" id="x" value="100"> <br>
+            두번째 정수 : <input type = "text" id="y" > <br>
+            합계 : <input id="sum"> <br>
+            <input type = "button" value="계산" onclick="calc()">
+        </form>
+    </body>
+</html>
