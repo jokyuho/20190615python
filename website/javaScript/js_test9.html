@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>이벤트 연습</title>
+        <script type="text/javascript">
+        function mouseIn(elem){
+            elem.style.border = "2px solid red";
+            elem.style.fontSize = "30px";
+        }
+        function mouseOut(elem){
+            elem.style.border = "2px solid blue";
+            elem.style.fontSize = "16px";            
+        }
+        </script>
+    </head>
+    <body>
+        <div style = "background-color:lightblue" 
+        onmouseover="mouseIn(this)" onmouseout="mouseOut(this)">마우스 이벤트!</div>
+    </body>
+</html>

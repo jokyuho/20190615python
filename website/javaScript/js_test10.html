@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>마우스이벤트 연습</title>
+        <h1 id = "title">마우스 이벤트</h1>
+        <a href = "#" id = "btn"><img src="img/autoum.jpg"></a>
+        <p id = "img_src"></p>
+
+        <script>
+        var btn = document.getElementById("btn");
+        var s = document.getElementById("img_src");
+        btn.onmouseover = function(){
+            document.getElementById("title").innerHTML = "마우스 오버";
+            btn.firstChild.src = "img/summer.jpg";
+            s.innerHTML = btn.firstChild.src;
+        }
+        btn.onmouseout = function(){
+        document.getElementById("title").innerHTML = "마우스 아웃";
+        btn.firstChild.src = "img/autoum.jpg";
+        s.innerHTML = btn.firstChild.src;
+        }
+        </script>
+    </head>
+</html>
