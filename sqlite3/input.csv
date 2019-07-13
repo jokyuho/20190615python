@@ -1,0 +1,4 @@
+supplier_name,invoice_number,part_number,cost,purchase_date
+jo,1,301,3800,2019-06-15
+kyu,2,301,6400,2019-06-15
+ho,3,301,5000,2019-06-15
