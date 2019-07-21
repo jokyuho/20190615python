@@ -11,7 +11,7 @@ table=navigator.find('table', class_='list_netizen')
 print(table)
 
 list_records=[]
-with open('./mariadb/movie.csv', 'w', newline='', encoding='UTF-8') as csvfile:
+with open('./mariadb/movie2.csv', 'w', newline='', encoding='UTF-8') as csvfile:
     fieldnames = ['번호', '평점', '영화', '140자평', '글쓴이', '날짜']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter='|')
     writer.writeheader()
@@ -30,14 +30,9 @@ with open('./mariadb/movie.csv', 'w', newline='', encoding='UTF-8') as csvfile:
                 record.update({'날짜':str(c.text).split("****")[1]})
         try:
             list_records.append(record)
-            # writer.writerow(record)
+            writer.writerow(record)
 
         except:
             pass
 
-    writer.writerows(list_records)
 print(list_records)
-'''
-with open('./python_basic/movie.json','wt') as f:
-    json.dump(list_records,f)
-    '''
