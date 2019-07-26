@@ -80,7 +80,7 @@ def update_user(user):
     conn.close()
 
 
-#테이블 생성 함수
+#테이블 생성 함수 전체 댓글
 def create_table2():
     conn=conn_db()
     cursor=conn.cursor()
@@ -115,5 +115,43 @@ def insert_movie(items):
     cursor=conn.cursor()
     sql='INSERT INTO movie VALUES (%s, %s, %s, %s, %s, %s)'
     cursor.executemany(sql,items)
+    conn.commit()
+    conn.close()
+
+#테이블 생성 함수 라이온킹 댓글
+def create_table3():
+    conn=conn_db()
+    cursor=conn.cursor()
+    # movie테이블 생성(글번호,평점,영화제목,140자평,날짜)
+    # (no integer, grade integer, title text, content text, writer text, date text)
+    cursor.execute('''create table if not exists lionking(
+        no int NOT NULL, 
+        grade int,
+        title varchar(255),
+        content varchar(300),
+        writer varchar(30),
+        date varchar(20)
+        )''')
+    conn.commit()
+    conn.close()
+
+#전체 데이터 출력 함수
+def lionking_comment():
+    conn=conn_db()
+    cursor=conn.cursor()
+    cursor.execute("select * from lionking")
+    lionkings=cursor.fetchall()
+    print(len(lionkings)) #레코드 개수 출력
+    print(lionkings)
+    conn.close()
+    return lionkings
+
+
+#데이터 입력 함수
+def insert_lionking(lionkings):
+    conn=conn_db()
+    cursor=conn.cursor()
+    sql='INSERT INTO lionking VALUES (%s, %s, %s, %s, %s, %s)'
+    cursor.executemany(sql,lionkings)
     conn.commit()
     conn.close()
