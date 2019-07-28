@@ -531,5 +531,5 @@ def boardC(b_no):
     return render_template('board_content.html',list=result)
 
 if __name__=="__main__": #파일내에서만 직접적으로 동작하게끔
-    app.run(host='0.0.0.0',port=80,debug=True)
+    app.run(debug=True)
 #host0.0.0.0은 외부에서도 접근가능, port는 기본 5000으로 바꾸고 싶으면 바꾸면됨
