@@ -10,14 +10,15 @@ df = pd.read_csv('webmovie/cine.csv',engine='python',encoding='utf-8')
 temp = df.groupby('movieNm').sum()
 print(temp)
 mpl.rc('font', family='Malgun Gothic') #한글 폰트 설정
-plt.bar(temp.index, temp['audiAcc']) 
+plt.bar(temp.index, temp['salesAmt']) 
 plt.title('영화명(movieNm)별 총 매출액 막대 그래프')
 plt.xlabel('영화명')
-plt.ylabel('관객수')
+plt.ylabel('총매출액')
 plt.xticks(fontsize=6, rotation=90)
+plt.savefig('webmovie/chart/salesAmt.png')
 plt.show()
 '''
-'''
+
 temp = df.groupby('movieNm').sum()
 temp = temp.sort_values(by='audiAcc', ascending=0)
 temp = temp.iloc[:10]
@@ -26,16 +27,11 @@ mpl.rc('font', family='Malgun Gothic') #한글 폰트 설정
 mpl.rcParams['font.size'] = 9
 plt.pie(temp['audiAcc'], labels=temp.index, autopct='%.1f%%', shadow=True)
 plt.title('2019년 총 관람객 상위 10개의 영화명(movieNm) 파이 차트')
+plt.savefig('webmovie/chart/audiAccGraph.jpg')
 plt.show()
+
 '''
-date = pd.read_csv('webmovie/cine.csv', engine='python')
-date.info()
-print(date.head(3))
-date = date.sort_index(by='targetDt', ascending=True)
-print(date.head(3))
-
-
-temp1 = date[date['movieNm'] == '기생충']
+temp1 = df[df['movieNm'] == '기생충']
 
 print(temp1)
 
@@ -65,3 +61,5 @@ for tick in axe.xaxis.get_major_ticks():
 plt.suptitle('영화명 "기생충"의 일별 관객과 영화명 "알라딘"의 일별 관객 선 그래프')
 #분할해 그리기 끝
 plt.show()
+fig.savefig('webmovie/chart/targetDtGraph.png')
+'''

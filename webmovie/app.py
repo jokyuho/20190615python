@@ -421,7 +421,7 @@ def detail(m_no,current_movie_title):
         img = Image.open('webmovie/static/img/cloud.png')
         img_array=np.array(img)
 
-        wordcloud = WordCloud( font_path = '/webmovie/static/NanumPenScript-Regular.ttf', 
+        wordcloud = WordCloud( font_path = 'webmovie/static/NanumPenScript-Regular.ttf', 
                             stopwords = stopwords_kr,
                             background_color = 'white', 
                             mask=img_array,
